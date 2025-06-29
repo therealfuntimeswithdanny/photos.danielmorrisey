@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Photo Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+        }
+
+        .gallery-title {
+            text-align: center;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+        }
+
+         .gallery-title-2 {
+            text-align: center;
+            color: #000;
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+        }
+
+        a {
+            color: #000;
+            }
+
+        .photo-gallery {
+            columns: 4;
+            column-gap: 20px;
+            column-fill: balance;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 100%;
+            break-inside: avoid;
+            border: 2px solid transparent;
+        }
+
+        .photo-item:hover {
+            border: 2px solid #000;
+            transform: scale(1.02);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            text-align: center;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        .overlay-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .overlay-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #ccc;
+        }
+
+        .modal-caption {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .photo-gallery {
+                columns: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .gallery-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .photo-gallery {
+                columns: 2;
+                column-gap: 15px;
+            }
+
+            .photo-item {
+                margin-bottom: 15px;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                margin-top: 10%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-gallery {
+                columns: 1;
+                column-gap: 0;
+            }
+
+            .gallery-title {
+                font-size: 1.5rem;
+            }
+
+            .photo-item {
+                margin-bottom: 12px;
+            }
+        }
+
+        /* Loading animation */
+        .photo-item.loading {
+            background: #f5f5f5;
+            min-height: 200px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <h1 class="gallery-title">Daniel Morrisey</h1>
+        <div class="photo-gallery" id="photoGallery">
+            <!-- Photos will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Modal for full-size images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <div class="gallery-container">
+        <h3 class="gallery-title-2">&copy; 2025 Daniel Morrisey, All Rights Reserved. / Powered with Love & Pride by <a href="https://cloudflare.com">Cloudflare</a></h3>
+        </div>
+    
+    <script>
+        // Sample images with different sizes and aspect ratios
+        const photos = [
+            {
+                src: 'https://picsum.photos/400/600?random=1',
+                title: 'Mountain Vista',
+                description: 'Breathtaking mountain landscape'
+            },
+            {
+                src: 'https://picsum.photos/500/300?random=2',
+                title: 'Ocean Waves',
+                description: 'Serene ocean photography'
+            },
+            {
+                src: 'https://picsum.photos/350/500?random=3',
+                title: 'Forest Path',
+                description: 'Mystical forest walkway'
+            },
+            {
+                src: 'https://picsum.photos/600/400?random=4',
+                title: 'City Lights',
+                description: 'Urban nighttime scene'
+            },
+            {
+                src: 'https://picsum.photos/400/700?random=5',
+                title: 'Desert Sunset',
+                description: 'Golden hour in the desert'
+            },
+            {
+                src: 'https://picsum.photos/550/350?random=6',
+                title: 'Autumn Colors',
+                description: 'Fall foliage display'
+            },
+            {
+                src: 'https://picsum.photos/300/500?random=7',
+                title: 'River Rapids',
+                description: 'Rushing water through rocks'
+            },
+            {
+                src: 'https://picsum.photos/450/400?random=8',
+                title: 'Starry Night',
+                description: 'Clear night sky photography'
+            },
+            {
+                src: 'https://picsum.photos/380/600?random=9',
+                title: 'Flower Garden',
+                description: 'Colorful botanical scene'
+            },
+            {
+                src: 'https://picsum.photos/520/380?random=10',
+                title: 'Winter Wonderland',
+                description: 'Snow-covered landscape'
+            },
+            {
+                src: 'https://picsum.photos/400/450?random=11',
+                title: 'Ancient Architecture',
+                description: 'Historical building detail'
+            },
+            {
+                src: 'https://picsum.photos/480/550?random=12',
+                title: 'Wildlife Portrait',
+                description: 'Nature photography'
+            }
+        ];
+
+        const gallery = document.getElementById('photoGallery');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.querySelector('.close');
+
+        // Load photos into gallery
+        function loadPhotos() {
+            photos.forEach((photo, index) => {
+                const photoItem = document.createElement('div');
+                photoItem.className = 'photo-item loading';
+                
+                const img = document.createElement('img');
+                img.src = photo.src;
+                img.alt = photo.title;
+                img.loading = 'lazy';
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'photo-overlay';
+                
+                const overlayContent = document.createElement('div');
+                overlayContent.className = 'overlay-content';
+                overlayContent.innerHTML = `
+                    <div class="overlay-title">${photo.title}</div>
+                    <div class="overlay-description">${photo.description}</div>
+                `;
+                
+                overlay.appendChild(overlayContent);
+                photoItem.appendChild(img);
+                photoItem.appendChild(overlay);
+                
+                // Remove loading state when image loads
+                img.onload = () => {
+                    photoItem.classList.remove('loading');
+                };
+                
+                // Add click event for modal
+                photoItem.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                    modalImg.src = photo.src;
+                    modalCaption.textContent = `${photo.title} - ${photo.description}`;
+                });
+                
+                gallery.appendChild(photoItem);
+            });
+        }
+
+        // Modal functionality
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Initialize gallery
+        loadPhotos();
+
+        // Add smooth scrolling and intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all photo items for scroll animations
+        setTimeout(() => {
+            document.querySelectorAll('.photo-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+        }, 100);
+    </script>
+</body>
+</html>
