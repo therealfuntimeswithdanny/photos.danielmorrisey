@@ -57,6 +57,31 @@ const photos = [
     { src: '/img/JPEG image 2.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
     { src: '/img/JPEG image 3.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
     { src: '/img/JPEG image.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    // Added images from /img/upload-2
+    { src: '/img/upload-2/DSC_2753.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2754.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2758.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2772.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2791.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2817.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2850.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2852.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2863.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2879.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    // Added images from /img/upload-3
+    { src: '/img/upload-3/DSC_3636.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3535.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3692.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/CSC_3608.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3811.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3622.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3633.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3793.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3827.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3765.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3764.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3767.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3773.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
 ];
 
 const gallery = document.getElementById('photoGallery');
@@ -70,12 +95,12 @@ function loadPhotos() {
         const photoItem = document.createElement('div');
         photoItem.className = 'photo-item loading';
         const img = document.createElement('img');
-        img.src = photo.src;
+        img.setAttribute('data-src', photo.src); // Use data-src for lazy loading
+        img.loading = 'lazy'; // Keep native lazy loading as fallback
         // Set the title and overlay title to the image file name
         const imageName = photo.src.split('/').pop();
         img.title = imageName;
         img.alt = imageName;
-        img.loading = 'lazy';
         const overlay = document.createElement('div');
         overlay.className = 'photo-overlay';
         const overlayContent = document.createElement('div');
@@ -105,12 +130,19 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && modal.style.display === 'block') modal.style.display = 'none';
 });
 loadPhotos();
+// Intersection Observer for fade-in and lazy loading images
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            // Lazy load image
+            const img = entry.target.querySelector('img');
+            if (img && img.dataset.src && !img.src) {
+                img.src = img.dataset.src;
+            }
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
