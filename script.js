@@ -82,6 +82,14 @@ const photos = [
     { src: '/img/upload-3/DSC_3764.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3767.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3773.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    // Added images from /img/upload-4
+    { src: '/img/upload-4/DSC_0152.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0114.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0140.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0126.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0141.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0142.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0144.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
 ];
 
 const gallery = document.getElementById('photoGallery');
