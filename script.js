@@ -58,18 +58,18 @@ const photos = [
     { src: '/img/JPEG image 3.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
     { src: '/img/JPEG image.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
     // Added images from /img/upload-2
-    { src: '/img/upload-2/DSC_2753.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2753.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2754.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2758.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2758.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2772.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2791.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2817.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2791.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2817.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2850.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2852.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2852.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2863.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2879.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     // Added images from /img/upload-3
-    { src: '/img/upload-3/DSC_3636.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3636.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3535.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3692.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/CSC_3608.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
@@ -79,9 +79,9 @@ const photos = [
     { src: '/img/upload-3/DSC_3793.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3827.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3765.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3764.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3767.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3773.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3764.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3767.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3773.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
 ];
 
 // Helper: use .jpg if .NEF
