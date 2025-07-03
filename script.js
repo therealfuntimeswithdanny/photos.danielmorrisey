@@ -58,18 +58,18 @@ const photos = [
     { src: '/img/JPEG image 3.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
     { src: '/img/JPEG image.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
     // Added images from /img/upload-2
-    { src: '/img/upload-2/DSC_2753.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2753.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2754.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2758.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2758.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2772.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2791.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2817.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2791.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2817.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2850.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2852.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2852.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2863.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     { src: '/img/upload-2/DSC_2879.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     // Added images from /img/upload-3
-    { src: '/img/upload-3/DSC_3636.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3636.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3535.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3692.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/CSC_3608.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
@@ -79,13 +79,10 @@ const photos = [
     { src: '/img/upload-3/DSC_3793.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3827.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     { src: '/img/upload-3/DSC_3765.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3764.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3767.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3773.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3764.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3767.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3773.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
 ];
-
-// Helper: use .jpg if .NEF
-const getDisplaySrc = src => src.toLowerCase().endsWith('.nef') ? src.replace(/\.nef$/i, '.jpg') : src;
 
 const gallery = document.getElementById('photoGallery');
 const modal = document.getElementById('imageModal');
@@ -98,11 +95,10 @@ function loadPhotos() {
         const photoItem = document.createElement('div');
         photoItem.className = 'photo-item loading';
         const img = document.createElement('img');
-        const displaySrc = getDisplaySrc(photo.src);
-        img.setAttribute('data-src', displaySrc); // Use data-src for lazy loading
+        img.setAttribute('data-src', photo.src); // Use data-src for lazy loading
         img.loading = 'lazy'; // Keep native lazy loading as fallback
         // Set the title and overlay title to the image file name
-        const imageName = displaySrc.split('/').pop();
+        const imageName = photo.src.split('/').pop();
         img.title = imageName;
         img.alt = imageName;
         const overlay = document.createElement('div');
@@ -119,7 +115,7 @@ function loadPhotos() {
         img.onload = () => photoItem.classList.remove('loading');
         photoItem.addEventListener('click', () => {
             modal.style.display = 'block';
-            modalImg.src = displaySrc;
+            modalImg.src = photo.src;
             modalCaption.innerHTML = `${imageName} - ${photo.description}`;
         });
         gallery.appendChild(photoItem);

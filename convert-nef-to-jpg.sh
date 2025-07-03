@@ -15,7 +15,7 @@ fi
 find . -type f -name '*.NEF' | while read -r nef; do
   jpg="${nef%.NEF}.jpg"
   echo "Converting $nef to $jpg ..."
-  dcraw -c "$nef" | magick - "$jpg"
+  dcraw -c "$nef" | magick - -quality 95 "$jpg"
   if [ $? -eq 0 ]; then
     echo "Success: $jpg created. Deleting $nef ..."
     rm "$nef"
