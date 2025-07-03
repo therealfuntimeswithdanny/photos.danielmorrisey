@@ -84,6 +84,9 @@ const photos = [
     { src: '/img/upload-3/DSC_3773.NEF', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
 ];
 
+// Helper: use .jpg if .NEF
+const getDisplaySrc = src => src.toLowerCase().endsWith('.nef') ? src.replace(/\.nef$/i, '.jpg') : src;
+
 const gallery = document.getElementById('photoGallery');
 const modal = document.getElementById('imageModal');
 const modalImg = document.getElementById('modalImage');
@@ -95,10 +98,11 @@ function loadPhotos() {
         const photoItem = document.createElement('div');
         photoItem.className = 'photo-item loading';
         const img = document.createElement('img');
-        img.setAttribute('data-src', photo.src); // Use data-src for lazy loading
+        const displaySrc = getDisplaySrc(photo.src);
+        img.setAttribute('data-src', displaySrc); // Use data-src for lazy loading
         img.loading = 'lazy'; // Keep native lazy loading as fallback
         // Set the title and overlay title to the image file name
-        const imageName = photo.src.split('/').pop();
+        const imageName = displaySrc.split('/').pop();
         img.title = imageName;
         img.alt = imageName;
         const overlay = document.createElement('div');
@@ -115,7 +119,7 @@ function loadPhotos() {
         img.onload = () => photoItem.classList.remove('loading');
         photoItem.addEventListener('click', () => {
             modal.style.display = 'block';
-            modalImg.src = photo.src;
+            modalImg.src = displaySrc;
             modalCaption.innerHTML = `${imageName} - ${photo.description}`;
         });
         gallery.appendChild(photoItem);

@@ -332,22 +332,6 @@
     </div>
 
     <script>
-        // Search functionality
-        function performSearch() {
-            const searchTerm = document.getElementById('searchInput').value.trim();
-            if (searchTerm) {
-                // You can customize this to redirect to your site's search page
-                window.location.href = `/?search=${encodeURIComponent(searchTerm)}`;
-            }
-        }
-
-        // Allow search on Enter key
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-
         // Add some interactive elements
         document.addEventListener('mousemove', (e) => {
             const squares = document.querySelectorAll('.floating-square');
