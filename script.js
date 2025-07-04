@@ -1,95 +1,95 @@
 const photos = [
-    { src: '/img/IMG_1489.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1593.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1594.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1595.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1596.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1597.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1598.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1599.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1600.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1601.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1602.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1603.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1604.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1605.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1606.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1607.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1608.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1609.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1610.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1612.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1613.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1676.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1678.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1685.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1686.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1689.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1690.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1708.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1710.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1711.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1726.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1728.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1729.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1730.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1734.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1735.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1737.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1738.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1739.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1740.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1747.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1749.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1751.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1752.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1753.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1754.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1756.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1757.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1758.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1759.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1760.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1761.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1763.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1764.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/IMG_1766.jpg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/JPEG image 2.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/JPEG image 3.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
-    { src: '/img/JPEG image.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1489.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1593.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1594.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1595.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1596.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1597.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1598.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1599.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1600.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1601.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1602.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1603.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1604.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1605.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1606.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1607.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1608.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1609.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1610.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1612.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1613.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1676.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1678.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1685.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1686.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1689.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1690.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1708.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1710.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1711.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1726.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1728.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1729.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1730.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1734.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1735.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1737.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1738.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1739.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1740.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1747.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1749.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1751.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1752.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1753.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1754.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1756.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1757.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1758.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1759.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1760.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1761.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1763.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1764.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/IMG_1766.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/JPEG image 2.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/JPEG image 3.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
+    { src: '/img/JPEG image.avif', description: '<i class="fa-solid fa-location-dot"></i> Atlantic Beach, NC' },
     // Added images from /img/upload-2
-    { src: '/img/upload-2/DSC_2753.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2754.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2758.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2772.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2791.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2817.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2850.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2852.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2863.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
-    { src: '/img/upload-2/DSC_2879.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2753.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2754.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2758.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2772.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2791.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2817.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2850.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2852.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2863.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
+    { src: '/img/upload-2/DSC_2879.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-2' },
     // Added images from /img/upload-3
-    { src: '/img/upload-3/DSC_3636.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3535.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3692.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/CSC_3608.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3811.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3622.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3633.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3793.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3827.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3765.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3764.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3767.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
-    { src: '/img/upload-3/DSC_3773.jpg', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3636.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3535.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3692.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/CSC_3608.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3811.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3622.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3633.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3793.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3827.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3765.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3764.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3767.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
+    { src: '/img/upload-3/DSC_3773.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-3' },
     // Added images from /img/upload-4
-    { src: '/img/upload-4/DSC_0152.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
-    { src: '/img/upload-4/DSC_0114.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
-    { src: '/img/upload-4/DSC_0140.jpeg', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
-    { src: '/img/upload-4/DSC_0126.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
-    { src: '/img/upload-4/DSC_0141.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
-    { src: '/img/upload-4/DSC_0142.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
-    { src: '/img/upload-4/DSC_0144.JPG', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0152.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0114.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0140.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0126.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0141.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0142.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    { src: '/img/upload-4/DSC_0144.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
 ];
 
 const gallery = document.getElementById('photoGallery');
@@ -98,34 +98,54 @@ const modalImg = document.getElementById('modalImage');
 const modalCaption = document.getElementById('modalCaption');
 const closeBtn = document.querySelector('.close');
 
+function getAvifPath(src) {
+    // Only replace .jpg, .jpeg, .JPG, .JPEG extensions
+    return src.replace(/\.(jpe?g)$/i, '.avif');
+}
+
+function createPhotoElement(photo) {
+    const photoItem = document.createElement('div');
+    photoItem.className = 'photo-item loading';
+    const imageName = photo.src.split('/').pop();
+    // Always use AVIF for display if the source is jpg/jpeg
+    let avifSrc = photo.src;
+    if (/\.(jpe?g)$/i.test(photo.src)) {
+        avifSrc = getAvifPath(photo.src);
+    }
+    // Create <img> for AVIF only
+    const img = document.createElement('img');
+    img.setAttribute('data-src', avifSrc); // Use data-src for lazy loading
+    img.loading = 'lazy';
+    img.title = imageName;
+    img.alt = imageName;
+    // Overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'photo-overlay';
+    const overlayContent = document.createElement('div');
+    overlayContent.className = 'overlay-content';
+    overlayContent.innerHTML = `
+        <div class="overlay-title">${imageName}</div>
+        <div class="overlay-description">${photo.description}</div>
+    `;
+    overlay.appendChild(overlayContent);
+    photoItem.appendChild(img);
+    photoItem.appendChild(overlay);
+    img.onload = () => photoItem.classList.remove('loading');
+    photoItem.addEventListener('click', () => {
+        modal.style.display = 'block';
+        modalImg.src = avifSrc;
+        modalImg.onerror = function() {
+            // fallback to original if AVIF fails
+            modalImg.src = photo.src;
+        };
+        modalCaption.innerHTML = `${imageName} - ${photo.description}`;
+    });
+    return photoItem;
+}
+
 function loadPhotos() {
     photos.forEach(photo => {
-        const photoItem = document.createElement('div');
-        photoItem.className = 'photo-item loading';
-        const img = document.createElement('img');
-        img.setAttribute('data-src', photo.src); // Use data-src for lazy loading
-        img.loading = 'lazy'; // Keep native lazy loading as fallback
-        // Set the title and overlay title to the image file name
-        const imageName = photo.src.split('/').pop();
-        img.title = imageName;
-        img.alt = imageName;
-        const overlay = document.createElement('div');
-        overlay.className = 'photo-overlay';
-        const overlayContent = document.createElement('div');
-        overlayContent.className = 'overlay-content';
-        overlayContent.innerHTML = `
-            <div class="overlay-title">${imageName}</div>
-            <div class="overlay-description">${photo.description}</div>
-        `;
-        overlay.appendChild(overlayContent);
-        photoItem.appendChild(img);
-        photoItem.appendChild(overlay);
-        img.onload = () => photoItem.classList.remove('loading');
-        photoItem.addEventListener('click', () => {
-            modal.style.display = 'block';
-            modalImg.src = photo.src;
-            modalCaption.innerHTML = `${imageName} - ${photo.description}`;
-        });
+        const photoItem = createPhotoElement(photo);
         gallery.appendChild(photoItem);
     });
 }
