@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Daniel Morrisey</title>
+    <link rel="stylesheet" href="404.css">
+</head>
+<body>
+    <div class="decorative-elements">
+        <div class="floating-square"></div>
+        <div class="floating-square"></div>
+        <div class="floating-square"></div>
+        <div class="floating-square"></div>
+    </div>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-description">
+            The page you're looking for seems to have wandered off into the digital wilderness. 
+            Don't worry, even the best explorers sometimes take a wrong turn.
+        </p>
+        
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary">Take Me Home</a>
+            <a href="javascript:history.back()" class="btn">Go Back</a>
+        </div>
+
+    </div>
+
+    <div class="footer-credit">
+        &copy; 2025 Daniel Morrisey, All Rights Reserved. / Powered with Love & Pride by <a href="https://cloudflare.com">Cloudflare</a>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        document.addEventListener('mousemove', (e) => {
+            const squares = document.querySelectorAll('.floating-square');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            squares.forEach((square, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                
+                square.style.transform = `translate(${x}px, ${y}px) rotate(${x + y}deg)`;
+            });
+        });
+
+        // Add click effect to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = (e.clientX - e.target.offsetLeft) + 'px';
+                ripple.style.top = (e.clientY - e.target.offsetTop) + 'px';
+                ripple.style.width = ripple.style.height = '20px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

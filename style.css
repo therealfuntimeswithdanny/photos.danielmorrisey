@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+}
+.gallery-title, .gallery-title-2 {
+    text-align: center;
+    color: #000;
+    font-weight: 300;
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+}
+.gallery-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+.gallery-title-2 {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+a { color: #000; }
+.photo-gallery {
+    columns: 4;
+    column-gap: 20px;
+    column-fill: balance;
+}
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+    break-inside: avoid;
+    border: 2px solid transparent;
+}
+.photo-item:hover {
+    border: 2px solid #000;
+    transform: scale(1.02);
+}
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+.photo-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+.overlay-content {
+    text-align: center;
+    color: #fff;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+.photo-item:hover .overlay-content {
+    transform: translateY(0);
+}
+.overlay-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.overlay-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+.modal-content {
+    position: relative;
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 5%;
+    animation: modalFadeIn 0.3s ease;
+}
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.8);}
+    to { opacity: 1; transform: scale(1);}
+}
+.close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.close:hover { color: #ccc; }
+.modal-caption {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    font-size: 1.1rem;
+}
+/* Responsive design */
+@media (max-width: 1200px) {
+    .photo-gallery { columns: 3; }
+}
+@media (max-width: 768px) {
+    .gallery-container { padding: 20px; margin: 10px; }
+    .gallery-title { font-size: 2rem; margin-bottom: 30px; }
+    .photo-gallery { columns: 2; column-gap: 15px; }
+    .photo-item { margin-bottom: 15px; }
+    .modal-content { max-width: 95%; margin-top: 10%; }
+}
+@media (max-width: 480px) {
+    .photo-gallery { columns: 1; column-gap: 0; }
+    .gallery-title { font-size: 1.5rem; }
+    .photo-item { margin-bottom: 12px; }
+}
+/* Loading animation */
+.photo-item.loading {
+    background: #f5f5f5;
+    min-height: 200px;
+    border: 1px solid #ddd;
+}
