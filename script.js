@@ -115,6 +115,91 @@ const modal = document.getElementById('imageModal');
 const modalImg = document.getElementById('modalImage');
 const modalCaption = document.getElementById('modalCaption');
 const closeBtn = document.querySelector('.close');
+const locationFilter = document.getElementById('locationFilter');
+const sizeFilter = document.getElementById('sizeFilter');
+
+async function getImageSizeKB(url) {
+    try {
+        const response = await fetch(url, { method: 'HEAD' });
+        const size = response.headers.get('content-length');
+        return size ? Math.round(Number(size) / 1024) : 0;
+    } catch {
+        return 0;
+    }
+}
+
+function getLocationFromDescription(description) {
+    // Remove HTML tags (e.g., icons) and trim whitespace
+    return description.replace(/<[^>]+>/g, '').trim();
+}
+
+function getUniqueLocations() {
+    const locations = new Set();
+    photos.forEach(photo => {
+        const loc = getLocationFromDescription(photo.description);
+        if (loc) locations.add(loc);
+    });
+    return Array.from(locations).sort();
+}
+
+function populateLocationFilter() {
+    const uniqueLocations = Array.from(new Set(photos.map(p => getLocationFromDescription(p.description).trim())));
+    locationFilter.innerHTML = '<option value="All">All</option>' +
+        uniqueLocations.map(loc => `<option value="${loc}">${loc}</option>`).join('');
+}
+
+function clearGallery() {
+    while (gallery.firstChild) gallery.removeChild(gallery.firstChild);
+}
+
+async function loadPhotos(filterLoc = 'All', minSizeKB = 0) {
+    clearGallery();
+    let filtered = photos;
+    if (filterLoc && filterLoc !== 'All') {
+        filtered = filtered.filter(photo => {
+            const loc = getLocationFromDescription(photo.description).toLowerCase();
+            return loc === filterLoc.toLowerCase();
+        });
+    }
+    if (minSizeKB && !isNaN(minSizeKB) && minSizeKB > 0) {
+        // Filter by image size (async)
+        const sizeChecks = await Promise.all(filtered.map(async photo => {
+            const size = await getImageSizeKB(photo.src);
+            return size >= minSizeKB;
+        }));
+        filtered = filtered.filter((_, i) => sizeChecks[i]);
+    }
+    filtered.forEach(photo => {
+        const photoItem = createPhotoElement(photo);
+        gallery.appendChild(photoItem);
+    });
+    // Re-apply observer for fade-in
+    setTimeout(() => {
+        document.querySelectorAll('.photo-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+    }, 100);
+}
+
+// Populate filters on load
+populateLocationFilter();
+
+if (locationFilter) {
+    locationFilter.addEventListener('change', () => {
+        loadPhotos(locationFilter.value, sizeFilter.value);
+    });
+}
+if (sizeFilter) {
+    sizeFilter.addEventListener('input', () => {
+        loadPhotos(locationFilter.value, sizeFilter.value);
+    });
+}
+
+// Initial load (show all)
+loadPhotos();
 
 function getAvifPath(src) {
     // Only replace .jpg, .jpeg, .JPG, .JPEG extensions
@@ -145,6 +230,14 @@ function createPhotoElement(photo) {
         <div class="overlay-title">${imageName}</div>
         <div class="overlay-description">${photo.description}</div>
     `;
+    // Download button (centered)
+    const downloadBtn = document.createElement('a');
+    downloadBtn.className = 'download-btn';
+    downloadBtn.href = avifSrc;
+    downloadBtn.download = imageName;
+    downloadBtn.title = 'Download image';
+    downloadBtn.innerHTML = '<i class="fa-solid fa-download"></i>';
+    overlayContent.appendChild(downloadBtn);
     overlay.appendChild(overlayContent);
     photoItem.appendChild(img);
     photoItem.appendChild(overlay);
@@ -200,3 +293,53 @@ setTimeout(() => {
         observer.observe(item);
     });
 }, 100);
+
+// Add CSS for download button
+(function addDownloadBtnStyle() {
+    const style = document.createElement('style');
+    style.textContent = `
+    .overlay-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        pointer-events: none;
+    }
+    .overlay-title, .overlay-description {
+        pointer-events: auto;
+    }
+    .download-btn {
+        opacity: 0;
+        margin-top: 1.2em;
+        background: rgba(255,255,255,0.92);
+        border-radius: 50%;
+        padding: 0.7em 0.8em;
+        color: #222;
+        font-size: 1.6em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: background 0.2s, color 0.2s, opacity 0.2s;
+        text-decoration: none;
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .download-btn i {
+        pointer-events: none;
+    }
+    .photo-item:hover .download-btn {
+        opacity: 1;
+    }
+    .photo-item:hover .overlay-content {
+        justify-content: center;
+    }
+    .photo-overlay {
+        position: relative;
+    }
+    `;
+    document.head.appendChild(style);
+})();

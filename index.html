@@ -24,10 +24,44 @@
     <link rel="icon" href="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/publication/logo/50dde009-62ee-4b4c-9550-b3ab83ebe55a/_This_is_a_close-up__slightly_high-angle_selfie_of_a_person_with_light_brown_hair_and_numerous_freck.jpeg" sizes="any">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/0ca27f8db1.js" crossorigin="anonymous"></script>
+    <style>
+        .gallery-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .gallery-controls label {
+            font-weight: 500;
+            color: #333;
+        }
+        .gallery-controls select, .gallery-controls input[type="number"] {
+            padding: 0.4em 0.8em;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+            font-size: 1em;
+            background: #f8f8f8;
+            color: #222;
+            transition: border 0.2s;
+        }
+        .gallery-controls select:focus, .gallery-controls input[type="number"]:focus {
+            border: 1.5px solid #0078d7;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     <div class="gallery-container">
         <h1 class="gallery-title">Daniel Morrisey</h1>
+        <div class="gallery-controls">
+            <label for="locationFilter">Sort by location:</label>
+            <select id="locationFilter">
+                <option value="All">All</option>
+                <!-- Options will be populated by JS -->
+            </select>
+            <label for="sizeFilter">Min size (KB):</label>
+            <input type="number" id="sizeFilter" min="0" step="1" placeholder="0">
+        </div>
         <div class="photo-gallery" id="photoGallery"></div>
     </div>
     <div id="imageModal" class="modal">
