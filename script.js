@@ -118,6 +118,8 @@ const closeBtn = document.querySelector('.close');
 const locationFilter = document.getElementById('locationFilter');
 const sizeFilter = document.getElementById('sizeFilter');
 
+const downloadMenuBtn = document.getElementById('downloadMenuBtn');
+
 async function getImageSizeKB(url) {
     try {
         const response = await fetch(url, { method: 'HEAD' });
@@ -199,7 +201,7 @@ if (sizeFilter) {
 }
 
 // Initial load (show all)
-loadPhotos();
+loadPhotos('All', 0);
 
 function getAvifPath(src) {
     // Only replace .jpg, .jpeg, .JPG, .JPEG extensions
@@ -210,18 +212,15 @@ function createPhotoElement(photo) {
     const photoItem = document.createElement('div');
     photoItem.className = 'photo-item loading';
     const imageName = photo.src.split('/').pop();
-    // Always use AVIF for display if the source is jpg/jpeg
     let avifSrc = photo.src;
     if (/\.(jpe?g)$/i.test(photo.src)) {
         avifSrc = getAvifPath(photo.src);
     }
-    // Create <img> for AVIF only
     const img = document.createElement('img');
-    img.setAttribute('data-src', avifSrc); // Use data-src for lazy loading
+    img.setAttribute('data-src', avifSrc);
     img.loading = 'lazy';
     img.title = imageName;
     img.alt = imageName;
-    // Overlay
     const overlay = document.createElement('div');
     overlay.className = 'photo-overlay';
     const overlayContent = document.createElement('div');
@@ -243,58 +242,12 @@ function createPhotoElement(photo) {
     photoItem.appendChild(overlay);
     img.onload = () => photoItem.classList.remove('loading');
     photoItem.addEventListener('click', () => {
-        modal.style.display = 'block';
-        modalImg.src = avifSrc;
-        modalImg.onerror = function() {
-            // fallback to original if AVIF fails
-            modalImg.src = photo.src;
-        };
         modalCaption.innerHTML = `${imageName} - ${photo.description}`;
     });
     return photoItem;
 }
 
-function loadPhotos() {
-    photos.forEach(photo => {
-        const photoItem = createPhotoElement(photo);
-        gallery.appendChild(photoItem);
-    });
-}
-
-closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
-modal.addEventListener('click', e => {
-    if (e.target === modal) modal.style.display = 'none';
-});
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.style.display === 'block') modal.style.display = 'none';
-});
-loadPhotos();
-// Intersection Observer for fade-in and lazy loading images
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            // Lazy load image
-            const img = entry.target.querySelector('img');
-            if (img && img.dataset.src && !img.src) {
-                img.src = img.dataset.src;
-            }
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-setTimeout(() => {
-    document.querySelectorAll('.photo-item').forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(item);
-    });
-}, 100);
-
-// Add CSS for download button
+// Restore download button CSS to centered overlay
 (function addDownloadBtnStyle() {
     const style = document.createElement('style');
     style.textContent = `
@@ -343,3 +296,36 @@ setTimeout(() => {
     `;
     document.head.appendChild(style);
 })();
+
+closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+modal.addEventListener('click', e => {
+    if (e.target === modal) modal.style.display = 'none';
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.style.display === 'block') modal.style.display = 'none';
+});
+loadPhotos();
+// Intersection Observer for fade-in and lazy loading images
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            // Lazy load image
+            const img = entry.target.querySelector('img');
+            if (img && img.dataset.src && !img.src) {
+                img.src = img.dataset.src;
+            }
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+setTimeout(() => {
+    document.querySelectorAll('.photo-item').forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
+    });
+}, 100);
