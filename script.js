@@ -90,6 +90,24 @@ const photos = [
     { src: 'https://img.madebydanny.uk/img/upload-4/DSC_0141.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
     { src: 'https://img.madebydanny.uk/img/upload-4/DSC_0142.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
     { src: 'https://img.madebydanny.uk/img/upload-4/DSC_0144.avif', description: '<i class="fa-solid fa-location-dot"></i> Upload-4' },
+    // Added images from /img/upload-5
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0007.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0009.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0010.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0012.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0015.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0017.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0019.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0044.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0046.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0050.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0065.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0073.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0080.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0093.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0096.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0097.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0115.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
 ];
 
 const gallery = document.getElementById('photoGallery');
