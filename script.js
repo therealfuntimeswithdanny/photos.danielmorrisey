@@ -108,6 +108,18 @@ const photos = [
     { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0096.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
     { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0097.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
     { src: 'https://img.madebydanny.uk/img/upload-5/DSC_0115.avif', description: '<i class="fa-solid fa-location-dot"></i> Washington DC' },
+    // Added images from /img/chm25
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0118.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia ' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0114.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0113.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0112.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0038.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0025.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0023.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0022.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0020.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0015.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
+    { src: 'https://img.madebydanny.uk/img/chm25/DSC_0010.avif', description: '<i class="fa-solid fa-location-dot"></i> Camp Hidden Meadows, West Virginia' },
 ];
 
 const gallery = document.getElementById('photoGallery');
